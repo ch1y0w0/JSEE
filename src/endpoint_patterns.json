@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "name": "fetch_basic",
+    "regex": "fetch\\s*\\(\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "standard",
+    "description": "Basic fetch() calls with string URLs"
+  },
+  {
+    "id": 2,
+    "name": "fetch_variables",
+    "regex": "fetch\\s*\\(\\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\\s*[,)]",
+    "category": "standard",
+    "description": "fetch() calls with variable references"
+  },
+  {
+    "id": 3,
+    "name": "axios_get",
+    "regex": "axios\\s*\\.\\s*(?:get|post|put|delete|patch)\\s*\\(\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "standard",
+    "description": "Axios HTTP method calls"
+  },
+  {
+    "id": 4,
+    "name": "axios_config",
+    "regex": "axios\\s*\\(\\s*\\{\\s*(?:url|baseURL|endpoint)\\s*:\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "standard",
+    "description": "Axios configuration objects"
+  },
+  {
+    "id": 5,
+    "name": "xhr_open",
+    "regex": "(?:open|setRequestHeader)\\s*\\(\\s*[\"'](?:GET|POST|PUT|DELETE|PATCH)[\"']?\\s*,\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "standard",
+    "description": "XMLHttpRequest open() method"
+  },
+  {
+    "id": 6,
+    "name": "jquery_ajax",
+    "regex": "\\$\\.ajax\\s*\\(\\s*\\{\\s*(?:url|endpoint)\\s*:\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "standard",
+    "description": "jQuery AJAX calls"
+  },
+  {
+    "id": 7,
+    "name": "url_assignment",
+    "regex": "(?:url|endpoint|baseURL|api_url|API_URL|apiUrl|apiEndpoint)\\s*[=:]\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "standard",
+    "description": "URL variable assignments"
+  },
+  {
+    "id": 8,
+    "name": "template_literal_fetch",
+    "regex": "fetch\\s*\\(\\s*`([a-zA-Z0-9:/.?&=_-]+(?:\\$\\{[^}]+\\}[a-zA-Z0-9:/.?&=_-]*)*)`",
+    "category": "advanced",
+    "description": "fetch() with template literals"
+  },
+  {
+    "id": 9,
+    "name": "template_literal_assignment",
+    "regex": "(?:url|endpoint|baseURL|api_url)\\s*[=:]\\s*`([a-zA-Z0-9:/.?&=_-]+(?:\\$\\{[^}]+\\}[a-zA-Z0-9:/.?&=_-]*)*)`",
+    "category": "advanced",
+    "description": "URL assignments with template literals"
+  },
+  {
+    "id": 10,
+    "name": "concatenation_patterns",
+    "regex": "(?:url|endpoint|baseURL)\\s*[=:]\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']?\\s*\\+",
+    "category": "advanced",
+    "description": "URL string concatenation start patterns"
+  },
+  {
+    "id": 11,
+    "name": "protocol_relative",
+    "regex": "[\"']?(//[a-zA-Z0-9.-]+(?::\\d+)?)[\"']?(?:[,\\s);])",
+    "category": "advanced",
+    "description": "Protocol-relative URLs (//example.com)"
+  },
+  {
+    "id": 12,
+    "name": "env_variable_reference",
+    "regex": "(?:process\\.env|import\\.meta\\.env|ENV|CONFIG)\\s*\\.\\s*([A-Z_]+(?:_URL|_ENDPOINT|_API)[A-Z_]*)",
+    "category": "advanced",
+    "description": "Environment variable references"
+  },
+  {
+    "id": 13,
+    "name": "base_url_config",
+    "regex": "baseURL\\s*[=:]\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "advanced",
+    "description": "Base URL configuration (axios, fetch)"
+  },
+  {
+    "id": 14,
+    "name": "header_url_assignment",
+    "regex": "(?:Authorization|X-API-[A-Z-]+|headers)\\s*:\\s*[\"'](?:Bearer\\s+)?([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "URLs in headers or header-like structures"
+  },
+  {
+    "id": 15,
+    "name": "nested_object_urls",
+    "regex": "(?:endpoints|apis|services)\\s*:\\s*\\{\\s*([a-zA-Z0-9_]+)\\s*:\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "Nested endpoint object mappings"
+  },
+  {
+    "id": 16,
+    "name": "import_url_specifier",
+    "regex": "(?:import|require)\\s*\\(\\s*[\"']([a-zA-Z0-9:/.?&=_#-]+)[\"']",
+    "category": "unique",
+    "description": "Dynamic imports with URL-like paths"
+  },
+  {
+    "id": 17,
+    "name": "regex_url_pattern",
+    "regex": "/^([a-zA-Z0-9:/.?&=_-]+)/",
+    "category": "unique",
+    "description": "URLs in regex patterns (routing)"
+  },
+  {
+    "id": 18,
+    "name": "map_reduce_endpoints",
+    "regex": "\\.(?:map|filter)\\s*\\(\\s*\\(\\s*[^)]*\\)\\s*=>\\s*([\"']([a-zA-Z0-9:/.?&=_-]+)[\"']|`([^`]+)`)",
+    "category": "unique",
+    "description": "Endpoints in map/filter/reduce operations"
+  },
+  {
+    "id": 19,
+    "name": "switch_case_endpoints",
+    "regex": "case\\s+[\"']([a-zA-Z0-9_]+)[\"']?\\s*:\\s*[a-zA-Z0-9_]*\\s*=\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "Endpoints in switch-case statements"
+  },
+  {
+    "id": 20,
+    "name": "decorator_endpoints",
+    "regex": "@(?:Route|Path|Api|Get|Post|Put|Delete)\\s*\\(\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "Endpoints in decorators (NestJS, Spring-like)"
+  },
+  {
+    "id": 21,
+    "name": "websocket_url",
+    "regex": "(?:new\\s+WebSocket|ws|wss)\\s*\\(\\s*[\"']([wst]{2,3}s?:[/\\\\]{1,2}[a-zA-Z0-9.-]+(?::\\d+)?[/a-zA-Z0-9._-]*)[\"']",
+    "category": "unique",
+    "description": "WebSocket connections (ws://, wss://)"
+  },
+  {
+    "id": 22,
+    "name": "event_listener_urls",
+    "regex": "addEventListener\\s*\\(\\s*[\"'](?:load|message|open|error)[\"']\\s*,\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "URLs in event listeners"
+  },
+  {
+    "id": 23,
+    "name": "redirect_urls",
+    "regex": "(?:window\\.location|redirect|navigateTo)\\s*[=\\.]\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "Redirect/navigation URLs"
+  },
+  {
+    "id": 24,
+    "name": "data_attributes",
+    "regex": "data-(?:url|endpoint|api)\\s*=\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "URLs in HTML data attributes"
+  },
+  {
+    "id": 25,
+    "name": "json_config_urls",
+    "regex": "[\"'](?:url|endpoint|baseURL|apiUrl)[\"']?\\s*:\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "URLs in JSON-like configurations"
+  },
+  {
+    "id": 26,
+    "name": "callback_urls",
+    "regex": "(?:callback|onSuccess|onError|onComplete)\\s*:\\s*[\"']([a-zA-Z0-9:/.?&=_-]+)[\"']",
+    "category": "unique",
+    "description": "URLs in callback configurations"
+  },
+  {
+    "id": 27,
+    "name": "full_url_comprehensive",
+    "regex": "(?:https?|wss?):\\/\\/[a-zA-Z0-9.-]+(?::\\d+)?(?:\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&'()*+,;=-]*)?",
+    "category": "comprehensive",
+    "description": "Full URL matching with all components"
+  },
+  {
+    "id": 28,
+    "name": "domain_only",
+    "regex": "(?:https?|wss?):\\/\\/(?:www\\.)?([a-zA-Z0-9.-]+(?::\\d+)?)",
+    "category": "comprehensive",
+    "description": "Domain/host extraction only"
+  }
+]
