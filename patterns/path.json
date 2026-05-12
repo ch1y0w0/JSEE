@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "name": "absolute_unix_paths",
+    "regex": "(?<![A-Za-z0-9])(?:\\/[^\\s\"'`<>|]+)+",
+    "category": "filesystem",
+    "description": "Absolute Unix/Linux paths"
+  },
+  {
+    "id": 2,
+    "name": "relative_paths",
+    "regex": "(?:\\.\\.\\/|\\.\\/)(?:[A-Za-z0-9._-]+\\/)*[A-Za-z0-9._-]+",
+    "category": "filesystem",
+    "description": "Relative filesystem paths"
+  },
+  {
+    "id": 3,
+    "name": "windows_paths",
+    "regex": "[A-Za-z]:\\\\(?:[^\\\\\\n\\r\"'<>:*?|]+\\\\)*[^\\\\\\n\\r\"'<>:*?|]*",
+    "category": "filesystem",
+    "description": "Windows filesystem paths"
+  },
+  {
+    "id": 4,
+    "name": "quoted_paths",
+    "regex": "[\"'`]((?:\\.\\.\\/|\\.\\/|\\/)[^\"'`\\s]+)[\"'`]",
+    "category": "filesystem",
+    "description": "Quoted relative and absolute paths"
+  },
+  {
+    "id": 5,
+    "name": "js_import_paths",
+    "regex": "(?:import|require)\\s*\\(?\\s*[\"'`]([^\"'`]+)[\"'`]\\)?",
+    "category": "javascript",
+    "description": "JavaScript import/require paths"
+  },
+  {
+    "id": 6,
+    "name": "dynamic_imports",
+    "regex": "import\\s*\\(\\s*[\"'`]([^\"'`]+)[\"'`]\\s*\\)",
+    "category": "javascript",
+    "description": "Dynamic import paths"
+  },
+  {
+    "id": 7,
+    "name": "html_src_href",
+    "regex": "(?:src|href|action|poster)\\s*=\\s*[\"'`]([^\"'`\\s]+)[\"'`]",
+    "category": "html",
+    "description": "HTML src/href/action paths"
+  },
+  {
+    "id": 8,
+    "name": "css_imports",
+    "regex": "@import\\s+(?:url\\()?\\s*[\"'`]([^\"'`]+)[\"'`]",
+    "category": "css",
+    "description": "CSS import paths"
+  },
+  {
+    "id": 9,
+    "name": "css_url",
+    "regex": "url\\s*\\(\\s*[\"'`]?(?!data:)([^\"'`)]+)[\"'`]?\\s*\\)",
+    "category": "css",
+    "description": "CSS url() paths"
+  },
+  {
+    "id": 10,
+    "name": "api_like_paths",
+    "regex": "(\\/(?:api|graphql|rest|internal|admin|private|v1|v2|v3)\\/[A-Za-z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)",
+    "category": "api",
+    "description": "API-like endpoint paths"
+  },
+  {
+    "id": 11,
+    "name": "full_urls",
+    "regex": "((?:https?|wss?|ftp):\\/\\/[^\\s\"'`<>]+)",
+    "category": "url",
+    "description": "Complete URLs"
+  },
+  {
+    "id": 12,
+    "name": "protocol_relative_urls",
+    "regex": "((?:\\/\\/)[A-Za-z0-9.-]+(?:\\/[^\\s\"'`<>]*)?)",
+    "category": "url",
+    "description": "Protocol-relative URLs"
+  },
+  {
+    "id": 13,
+    "name": "env_paths",
+    "regex": "(?:PATH|HOME|ROOT|DIR|DIRECTORY|FILE|CONFIG)\\s*[=:]\\s*[\"'`]([^\"'`]+)[\"'`]",
+    "category": "environment",
+    "description": "Environment variable paths"
+  },
+  {
+    "id": 14,
+    "name": "node_modules_paths",
+    "regex": "(node_modules\\/[A-Za-z0-9._@\\/-]+)",
+    "category": "nodejs",
+    "description": "Node.js dependency paths"
+  },
+  {
+    "id": 15,
+    "name": "webpack_chunk_paths",
+    "regex": "webpackChunkName:\\s*[\"'`]([^\"'`]+)[\"'`]",
+    "category": "webpack",
+    "description": "Webpack chunk paths"
+  },
+  {
+    "id": 16,
+    "name": "source_map_paths",
+    "regex": "\\/\\/[#@]\\s*sourceMappingURL=([^\\s]+)",
+    "category": "javascript",
+    "description": "JavaScript source map paths"
+  },
+  {
+    "id": 17,
+    "name": "archive_files",
+    "regex": "([A-Za-z0-9_\\/-]+\\.(?:zip|tar|gz|rar|7z|bz2))",
+    "category": "archives",
+    "description": "Archive file paths"
+  },
+  {
+    "id": 18,
+    "name": "config_files",
+    "regex": "([A-Za-z0-9_\\/-]+\\.(?:env|json|ya?ml|toml|ini|conf|config))",
+    "category": "config",
+    "description": "Configuration file paths"
+  },
+  {
+    "id": 19,
+    "name": "script_files",
+    "regex": "([A-Za-z0-9_\\/-]+\\.(?:js|mjs|cjs|ts|jsx|tsx|py|php|rb|go|rs|java|sh))",
+    "category": "source_code",
+    "description": "Source code file paths"
+  },
+  {
+    "id": 20,
+    "name": "media_files",
+    "regex": "([A-Za-z0-9_\\/-]+\\.(?:png|jpg|jpeg|gif|svg|webp|mp4|mp3|wav|ogg))",
+    "category": "media",
+    "description": "Media file paths"
+  },
+  {
+    "id": 21,
+    "name": "hidden_files",
+    "regex": "(\\/[A-Za-z0-9_\\/-]*\\.[A-Za-z0-9._-]+)",
+    "category": "hidden",
+    "description": "Hidden files and dotfiles"
+  },
+  {
+    "id": 22,
+    "name": "backup_files",
+    "regex": "([A-Za-z0-9_\\/-]+\\.(?:bak|old|backup|tmp|swp))",
+    "category": "backup",
+    "description": "Backup and temporary files"
+  },
+  {
+    "id": 23,
+    "name": "s3_bucket_paths",
+    "regex": "(s3:\\/\\/[A-Za-z0-9._-]+(?:\\/[A-Za-z0-9._\\/-]+)?)",
+    "category": "cloud",
+    "description": "AWS S3 bucket paths"
+  },
+  {
+    "id": 24,
+    "name": "docker_paths",
+    "regex": "(?:COPY|ADD|WORKDIR|VOLUME)\\s+[\"'`]?(\\/[^\\s\"'`]+)",
+    "category": "docker",
+    "description": "Dockerfile filesystem paths"
+  },
+  {
+    "id": 25,
+    "name": "git_paths",
+    "regex": "(\\.git\\/[A-Za-z0-9._\\/-]+)",
+    "category": "git",
+    "description": "Git internal paths"
+  }
+]
