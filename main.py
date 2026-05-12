@@ -3,5 +3,8 @@
 # Import libraries
 import src.crawl as crawl
 
-# Initialize Objects
-Cralwer = crawl.Crawler(url="https://google.com/")
+# Declare neccessary variables
+TARGET = ""
+
+# Initialize objects
+Cralwer = crawl.Crawler(url=TARGET)
