@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "fetch_calls",
+    "regex": "fetch\\s*\\(\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "http_client",
+    "description": "fetch() API endpoints"
+  },
+  {
+    "id": 2,
+    "name": "axios_calls",
+    "regex": "axios\\s*\\.\\s*(?:get|post|put|delete|patch|head|options)\\s*\\(\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "http_client",
+    "description": "Axios API endpoints"
+  },
+  {
+    "id": 3,
+    "name": "xhr_open",
+    "regex": "\\.open\\s*\\(\\s*[\"'`](?:GET|POST|PUT|DELETE|PATCH|OPTIONS|HEAD)[\"'`]\\s*,\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[^\"'`]*)[\"'`]",
+    "category": "xhr",
+    "description": "XMLHttpRequest open() endpoints"
+  },
+  {
+    "id": 4,
+    "name": "jquery_ajax",
+    "regex": "\\$\\.ajax\\s*\\(\\s*\\{[\\s\\S]*?(?:url|endpoint)\\s*:\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[^\"'`]*)[\"'`]",
+    "category": "jquery",
+    "description": "jQuery AJAX endpoints"
+  },
+  {
+    "id": 5,
+    "name": "graphql_uri",
+    "regex": "(?:uri|endpoint)\\s*:\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "graphql",
+    "description": "GraphQL endpoints"
+  },
+  {
+    "id": 6,
+    "name": "rest_routes",
+    "regex": "(?:app|router)\\.(?:get|post|put|delete|patch|options|head|use)\\s*\\(\\s*[\"'`](\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "backend",
+    "description": "Express/Fastify routes"
+  },
+  {
+    "id": 7,
+    "name": "nestjs_routes",
+    "regex": "@(?:Controller|Get|Post|Put|Delete|Patch|Options|Head)\\s*\\(\\s*[\"'`](\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "backend",
+    "description": "NestJS decorators"
+  },
+  {
+    "id": 8,
+    "name": "fastapi_routes",
+    "regex": "@(?:app|router)\\.(?:get|post|put|delete|patch|options|head)\\s*\\(\\s*[\"'`](\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "backend",
+    "description": "FastAPI routes"
+  },
+  {
+    "id": 9,
+    "name": "flask_routes",
+    "regex": "@(?:app|blueprint)\\.route\\s*\\(\\s*[\"'`](\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "backend",
+    "description": "Flask routes"
+  },
+  {
+    "id": 10,
+    "name": "django_routes",
+    "regex": "(?:path|re_path|url)\\s*\\(\\s*[\"'`](\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "backend",
+    "description": "Django URL routes"
+  },
+  {
+    "id": 11,
+    "name": "nextjs_api",
+    "regex": "\\/api\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*",
+    "category": "frontend",
+    "description": "Next.js API routes"
+  },
+  {
+    "id": 12,
+    "name": "relative_api_paths",
+    "regex": "[\"'`](\\/(?:api|graphql|rest|v1|v2|internal|public)\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "generic",
+    "description": "Relative API paths"
+  },
+  {
+    "id": 13,
+    "name": "full_api_urls",
+    "regex": "[\"'`](https?:\\/\\/[^\"'`]+\\/(?:api|graphql|rest|v1|v2|internal|public)\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "generic",
+    "description": "Absolute API URLs"
+  },
+  {
+    "id": 14,
+    "name": "websocket_endpoints",
+    "regex": "[\"'`](wss?:\\/\\/[^\"'`]+\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "websocket",
+    "description": "WebSocket endpoints"
+  },
+  {
+    "id": 15,
+    "name": "baseurl_assignments",
+    "regex": "(?:baseURL|apiUrl|endpoint|base_uri|baseUri)\\s*[=:]\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "config",
+    "description": "Configured API base URLs"
+  },
+  {
+    "id": 16,
+    "name": "template_literal_endpoints",
+    "regex": "`((?:https?:\\/\\/[^`]+)?\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%${}-]*)`",
+    "category": "template_literal",
+    "description": "Template literal API endpoints"
+  },
+  {
+    "id": 17,
+    "name": "react_query",
+    "regex": "(?:useQuery|useMutation|useInfiniteQuery)\\s*\\(\\s*[\"'`](\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "react",
+    "description": "React Query endpoints"
+  },
+  {
+    "id": 18,
+    "name": "swr",
+    "regex": "useSWR\\s*\\(\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "react",
+    "description": "SWR endpoints"
+  },
+  {
+    "id": 19,
+    "name": "webhook_urls",
+    "regex": "(?:webhook|callback|notify_url|callback_url)\\s*[=:]\\s*[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "webhook",
+    "description": "Webhook endpoints"
+  },
+  {
+    "id": 20,
+    "name": "hidden_private_endpoints",
+    "regex": "[\"'`]((?:https?:\\/\\/[^\"'`]+)?\\/(?:api|graphql|rest|internal|private|admin|backend)\\/[a-zA-Z0-9._~:/?#\\[\\]@!$&()*+,;=%-]*)[\"'`]",
+    "category": "private",
+    "description": "Hidden/private/internal API endpoints"
+  }
+]
